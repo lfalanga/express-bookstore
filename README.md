@@ -5,17 +5,18 @@ This template provides an arquitecture to develop a fake API REST.
 # Resources
 
 - [article](https://stackabuse.com/building-a-rest-api-with-node-and-express/)
-- [node](https://nodejs.org/en)
-- [yarn](https://classic.yarnpkg.com/en/)
-- [express](https://expressjs.com/)
-- [dotenv](https://www.npmjs.com/package/dotenv)
-- [body-parser](https://www.npmjs.com/package/body-parser)
+- [node](https://nodejs.org/en) : Cross-platform runtime environment.
+- [yarn](https://classic.yarnpkg.com/en/) : Dependency management tool.
+- [express](https://expressjs.com/) : Node.js web application framework.
+- [dotenv](https://www.npmjs.com/package/dotenv) : Environment varibles.
+- [body-parser](https://www.npmjs.com/package/body-parser) : Node.js body parsing middleware.
 - [cors](https://www.npmjs.com/package/cors) : Cross-Origin Resource Sharing.
 - [article](https://www.digitalocean.com/community/tutorials/use-expressjs-to-deliver-html-files) : Deliver html files with express.
 - [http](https://http.dev/) : Hyper Text Transfer Protocol.
 
 # ToDos
 
+- review once again all code for bookstore.
 - deploy application on render.
 - implement bootstrap styling and check features.
 - test running both instances hello-world and bookstore at index.js.
@@ -31,6 +32,4 @@ This template provides an arquitecture to develop a fake API REST.
 - all responses to JSON format.
 - research about testing packages.
 - add brief description to resources at README.md.
-- implement w3.css.
-- implement id property for book entity.
-- validate existing book by key or name.
+- implement bootstrap.

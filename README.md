@@ -4,7 +4,7 @@ This template provides an arquitecture to develop a fake API REST.
 
 # Resources
 
-- [article](https://stackabuse.com/building-a-rest-api-with-node-and-express/)
+- [article](https://stackabuse.com/building-a-rest-api-with-node-and-express/) : Building RES API with Node and Express.
 - [node](https://nodejs.org/en) : Cross-platform runtime environment.
 - [yarn](https://classic.yarnpkg.com/en/) : Dependency management tool.
 - [express](https://expressjs.com/) : Node.js web application framework.

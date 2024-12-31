@@ -13,6 +13,7 @@ This template provides an arquitecture to develop a fake API REST.
 - [cors](https://www.npmjs.com/package/cors) : Cross-Origin Resource Sharing.
 - [article](https://www.digitalocean.com/community/tutorials/use-expressjs-to-deliver-html-files) : Deliver html files with express.
 - [http](https://http.dev/) : Hyper Text Transfer Protocol.
+- [article](https://www.geeksforgeeks.org/what-is-export-default-in-javascript/) : What is export default in JavaScript.
 
 # ToDos
 

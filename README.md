@@ -22,11 +22,10 @@ This template provides an arquitecture to develop a fake API REST.
 - implement bootstrap styling and check features.
 - test running both instances hello and bookstore at index.js. try listening at index and routing separately.
 - trap posting empty edit-book form.
-- improve post methods for updates. is returning json. try using ajax.
-- implement /api/books route.
+- improve post methods for updates. is returning json. try using ajax. also for deletions.
 - implement proper status codes for every response.
 - do the tricky tests.
-- all responses to JSON format.
+- all responses to JSON format. define a standard format. status, message, etc.
 - research about testing packages.
 - implement bootstrap.
 - improve delivering book-list.js. try avoiding create a specific route for that file.

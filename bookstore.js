@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
     .json({ message: `${process.env.APP_NAME}: bookstore: home.` });
 });
 // create
-app.post("/books", (req, res) => {
+app.post("/api/books", (req, res) => {
   const created = { id: db.books.length, ...req.body };
   const index = db.books.findIndex((book) => book.isbn === created.isbn);
   if (db.books[index])
@@ -39,11 +39,11 @@ app.post("/books", (req, res) => {
   }
 });
 // all
-app.get("/books", (req, res) => {
+app.get("/api/books", (req, res) => {
   res.status(200).json(db.books);
 });
 // get
-app.get("/books/:isbn", (req, res) => {
+app.get("/api/books/:isbn", (req, res) => {
   const { isbn } = req.params;
   const book = db.books.find((book) => book.isbn === isbn);
   if (book) res.json(book);
@@ -53,7 +53,7 @@ app.get("/books/:isbn", (req, res) => {
     });
 });
 // update via put
-app.put("/books/:isbn", (req, res) => {
+app.put("/api/books/:isbn", (req, res) => {
   const { isbn } = req.params;
   const index = db.books.findIndex((book) => book.isbn === isbn);
   if (db.books[index]) {
@@ -69,7 +69,7 @@ app.put("/books/:isbn", (req, res) => {
       .json({ message: `${process.env.APP_NAME}: bookstore: book not found.` });
 });
 // update via post
-app.post("/books/:isbn", (req, res) => {
+app.post("/api/books/:isbn", (req, res) => {
   const { isbn } = req.params;
   const index = db.books.findIndex((book) => book.isbn === isbn);
   if (db.books[index]) {
@@ -85,7 +85,7 @@ app.post("/books/:isbn", (req, res) => {
       .json({ message: `${process.env.APP_NAME}: bookstore: book not found.` });
 });
 // delete
-app.delete("/books/:isbn", (req, res) => {
+app.delete("/api/books/:isbn", (req, res) => {
   const { isbn } = req.params;
   const index = db.books.findIndex((book) => book.isbn === isbn);
   if (db.books[index]) {
@@ -99,12 +99,12 @@ app.delete("/books/:isbn", (req, res) => {
       .json({ message: `${process.env.APP_NAME}: bookstore: book not found.` });
 });
 // new-book.html
-app.get("/new-book", (req, res) => {
+app.get("/books/new", (req, res) => {
   const html = path.join(__dirname, "pages/new-book.html");
   res.status(200).sendFile(html);
 });
 // book-list.html
-app.get("/book-list", (req, res) => {
+app.get("/books/list", (req, res) => {
   const html = path.join(__dirname, "pages/book-list.html");
   res.status(200).sendFile(html);
 });

@@ -1,6 +1,6 @@
 const setEditModal = (isbn) => {
   const xhttp = new XMLHttpRequest();
-  xhttp.open("GET", `/books/${isbn}`, false);
+  xhttp.open("GET", `/api/books/${isbn}`, false);
   xhttp.send();
   const book = JSON.parse(xhttp.responseText);
 
@@ -25,12 +25,12 @@ const setEditModal = (isbn) => {
   document.getElementById("description").value = description;
   document.getElementById("website").value = website;
   // setting up the action url for the book
-  document.getElementById("editForm").action = `/books/${isbn}`;
+  document.getElementById("editForm").action = `/api/books/${isbn}`;
 };
 
 const deleteBook = (isbn) => {
   const xhttp = new XMLHttpRequest();
-  xhttp.open("DELETE", `/books/${isbn}`, false);
+  xhttp.open("DELETE", `/api/books/${isbn}`, false);
   xhttp.send();
 
   location.reload();
@@ -38,7 +38,7 @@ const deleteBook = (isbn) => {
 
 const loadBooks = () => {
   const xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "/books", false);
+  xhttp.open("GET", "/api/books", false);
   xhttp.send();
   const books = JSON.parse(xhttp.responseText);
 

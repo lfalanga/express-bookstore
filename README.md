@@ -19,17 +19,13 @@ This template provides an arquitecture to develop a fake API REST.
 - review once again all code for bookstore.
 - deploy application on render.
 - implement bootstrap styling and check features.
-- test running both instances hello-world and bookstore at index.js.
-- rename bookstore-api.js to bookstore.js and change package.json script bookstore.
-- implement put method for postman use cases.
+- test running both instances hello and bookstore at index.js. try listening at index and routing separately.
 - trap posting empty edit-book form.
+- improve post methods for updates. is returning json. try using ajax.
 - implement /api/books route.
-- implement bookstore.json as initial API data.
 - implement proper status codes for every response.
 - do the tricky tests.
-- leave id property and implement '/book/:isbn' for routes instead.
-- prevent isbn modifications deleting the isbn property from req.body.
 - all responses to JSON format.
 - research about testing packages.
-- add brief description to resources at README.md.
 - implement bootstrap.
+- improve delivering book-list.js. try avoiding create a specific route for that file.

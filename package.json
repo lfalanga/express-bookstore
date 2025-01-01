@@ -12,9 +12,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "start": "node index.js",
-    "bookstore": "nodemon bookstore.js",
-    "hello": "nodemon hello.js"
+    "start": "node index.js"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"

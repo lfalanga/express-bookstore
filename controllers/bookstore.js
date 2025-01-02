@@ -1,28 +1,26 @@
 import "dotenv/config";
 import db from "../data/bookstore.js";
+import path from "path";
+import { errorRes, successRes } from "../common/response.js";
+
+const __dirname = path.resolve(path.dirname(""));
 
 class BookstoreController {
   constructor() {}
 
   home(req, res) {
     try {
-      res
-        .status(200)
-        .json({ message: `${process.env.APP_NAME}: bookstore: home.` });
+      successRes(res, `${process.env.APP_NAME}: bookstore: home.`);
     } catch (err) {
-      res
-        .status(500)
-        .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+      errorRes(res, err);
     }
   }
 
   all(req, res) {
     try {
-      res.status(200).json(db.books);
+      successRes(res, db.books);
     } catch (err) {
-      res
-        .status(500)
-        .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+      errorRes(res, err);
     }
   }
 
@@ -30,15 +28,12 @@ class BookstoreController {
     try {
       const { isbn } = req.params;
       const book = db.books.find((book) => book.isbn === isbn);
-      if (book) res.status(200).json(book);
-      else
-        res.status(404).json({
-          message: `${process.env.APP_NAME}: bookstore: book not found.`,
-        });
+      if (book) successRes(res, book);
+      else {
+        errorRes(res, new Error("not found"), `${process.env.APP_NAME}: bookstore: book not found.`, 404);
+      }
     } catch (err) {
-      res
-        .status(500)
-        .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+      errorRes(res, err);
     }
   }
 
@@ -48,18 +43,14 @@ class BookstoreController {
       delete data.id;
       const created = { id: db.books.length, ...data };
       const index = db.books.findIndex((book) => book.isbn === created.isbn);
-      if (db.books[index])
-        res.status(404).json({
-          message: `${process.env.APP_NAME}: bookstore: book already exists.`,
-        });
-      else {
+      if (db.books[index]) {
+        errorRes(res, new Error("conflict"), `${process.env.APP_NAME}: bookstore: book already exists.`, 409);
+      } else {
         db.books.push(created);
-        res.status(201).json(created);
+        successRes(res, created, 201);
       }
     } catch (err) {
-      res
-        .status(500)
-        .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+      errorRes(res, err);
     }
   }
 
@@ -73,15 +64,11 @@ class BookstoreController {
         delete data.id;
         const updated = { id: db.books[index].id, isbn: isbn, ...data };
         db.books[index] = updated;
-        res.status(200).json(updated);
+        successRes(res, updated);
       } else
-        res.status(404).json({
-          message: `${process.env.APP_NAME}: bookstore: book not found.`,
-        });
+        errorRes(res, new Error("not found"), `${process.env.APP_NAME}: bookstore: book not found.`, 404);
     } catch (err) {
-      res
-        .status(500)
-        .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+      errorRes(res, err);
     }
   }
 
@@ -95,17 +82,11 @@ class BookstoreController {
         delete data.id;
         const updated = { id: db.books[index].id, isbn: isbn, ...data };
         db.books[index] = updated;
-        res.status(200).json(updated);
+        successRes(res, updated);
       } else
-        res
-          .status(404)
-          .json({
-            message: `${process.env.APP_NAME}: bookstore: book not found.`,
-          });
+        errorRes(res, new Error("not found"), `${process.env.APP_NAME}: bookstore: book not found.`, 404);
     } catch (err) {
-      res
-        .status(500)
-        .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+      errorRes(res, err);
     }
   }
 
@@ -115,17 +96,11 @@ class BookstoreController {
       const index = db.books.findIndex((book) => book.isbn === isbn);
       if (db.books[index]) {
         db.books.splice(index, 1);
-        res.status(200).json({
-          message: `${process.env.APP_NAME}: bookstore: book deleted.`,
-        });
+        successRes(res, `${process.env.APP_NAME}: bookstore: deleted.`);
       } else
-        res.status(404).json({
-          message: `${process.env.APP_NAME}: bookstore: book not found.`,
-        });
+        errorRes(res, new Error("not found"), `${process.env.APP_NAME}: bookstore: book not found.`, 404);
     } catch (err) {
-      res
-        .status(500)
-        .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+      errorRes(res, err);
     }
   }
 }

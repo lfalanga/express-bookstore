@@ -1,41 +1,33 @@
 import "dotenv/config";
+import path from "path";
+import { errorRes, successRes } from "../common/response.js";
+
+const __dirname = path.resolve(path.dirname(""));
 
 class GreetingsController {
   constructor() {}
 
   home(req, res) {
     try {
-      res
-        .status(200)
-        .json({ message: `${process.env.APP_NAME}: greetings: home.` });
+      successRes(res, `${process.env.APP_NAME}: greetings: home.`);
     } catch (err) {
-      res
-        .status(500)
-        .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+      errorRes(res, err);
     }
   }
 
   hi(req, res) {
     try {
-      res
-        .status(200)
-        .json({ message: `${process.env.APP_NAME}: greetings: hi.` });
+      successRes(res, `${process.env.APP_NAME}: greetings: hi.`);
     } catch (err) {
-      res
-        .status(500)
-        .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+      errorRes(res, err);
     }
   }
 
   goodbye(req, res) {
     try {
-      res
-        .status(200)
-        .json({ message: `${process.env.APP_NAME}: greetings: goodbye.` });
+      successRes(res, `${process.env.APP_NAME}: greetings: goodbye.`);
     } catch (err) {
-      res
-        .status(500)
-        .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+      errorRes(res, err);
     }
   }
 }

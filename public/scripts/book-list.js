@@ -2,7 +2,7 @@ const setEditModal = (isbn) => {
   const xhttp = new XMLHttpRequest();
   xhttp.open("GET", `/api/books/${isbn}`, false);
   xhttp.send();
-  const book = JSON.parse(xhttp.responseText);
+  const book = JSON.parse(xhttp.responseText).data;
 
   const {
     title,
@@ -44,7 +44,7 @@ const loadBooks = () => {
   const xhttp = new XMLHttpRequest();
   xhttp.open("GET", "/api/books", false);
   xhttp.send();
-  const books = JSON.parse(xhttp.responseText);
+  const books = JSON.parse(xhttp.responseText).data;
 
   for (let book of books) {
     const x = `

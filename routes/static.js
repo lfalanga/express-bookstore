@@ -1,6 +1,7 @@
 import "dotenv/config";
 import path from "path";
 import express from "express";
+import { errorRes, successRes } from "../common/response.js";
 
 const __dirname = path.resolve(path.dirname(""));
 
@@ -9,9 +10,7 @@ router.get("/", (req, res) => {
   try {
     res.status(200).sendFile(path.join(__dirname, "/public/index.html"));
   } catch (err) {
-    res
-      .status(500)
-      .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+    errorRes(res, err);
   }
 });
 
@@ -19,9 +18,7 @@ router.get("/add", (req, res) => {
   try {
     res.status(200).sendFile(path.join(__dirname, "/public/book-add.html"));
   } catch (err) {
-    res
-      .status(500)
-      .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+    errorRes(res, err);
   }
 });
 
@@ -29,9 +26,7 @@ router.get("/list", (req, res) => {
   try {
     res.status(200).sendFile(path.join(__dirname, "/public/book-list.html"));
   } catch (err) {
-    res
-      .status(500)
-      .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+    errorRes(res, err);
   }
 });
 
@@ -39,9 +34,7 @@ router.get("/bootstrap", (req, res) => {
   try {
     res.status(200).sendFile(path.join(__dirname, "/public/bootstrap.html"));
   } catch (err) {
-    res
-      .status(500)
-      .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+    errorRes(res, err);
   }
 });
 
@@ -49,9 +42,7 @@ router.get("/redirect", (req, res) => {
   try {
     res.status(200).redirect('/foo.html');
   } catch (err) {
-    res
-      .status(500)
-      .json({ message: `${process.env.APP_NAME}: ${err.message}.` });
+    errorRes(res, err);
   }
 });
 

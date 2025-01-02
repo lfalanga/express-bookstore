@@ -15,16 +15,14 @@ This template provides an arquitecture to develop a fake API REST.
 - [http](https://http.dev/) : Hyper Text Transfer Protocol.
 - [article](https://www.geeksforgeeks.org/what-is-export-default-in-javascript/) : What is export default in JavaScript?
 - [article](https://expressjs.com/en/starter/static-files.html) : Serving static files in Express.
+- [article](https://www.educative.io/answers/how-to-add-bootstrap-to-your-nodejs-project) : How to add Bootstrap to Node.js project.
 
 # ToDos
 
-- review once again all code for bookstore.
-- deploy application on render.
-- implement bootstrap styling and check features.
-- trap posting empty edit-book form.
+- editBookModal: post form via ajax.
 - improve post methods for updates. is returning json. try using ajax. also for deletions.
 - implement proper status codes for every response.
 - do the tricky tests.
 - all responses to JSON format. define a standard format. status, message, etc.
 - research about testing packages.
-- implement bootstrap.
+- deploy application on render.

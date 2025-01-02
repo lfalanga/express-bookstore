@@ -28,10 +28,6 @@ const setEditModal = (isbn) => {
   document.getElementById("editForm").action = `/api/books/${isbn}`;
 };
 
-const save = () => {
-  document.forms[0].submit();
-}
-
 const deleteBook = (isbn) => {
   const xhttp = new XMLHttpRequest();
   xhttp.open("DELETE", `/api/books/${isbn}`, false);
@@ -61,13 +57,10 @@ const loadBooks = () => {
                       <hr>
 
                       <button type="button" class="btn btn-danger" onClick="deleteBook(${book.isbn})">Delete</button>
-                      <button
-                        type="button"
-                        class="btn btn-primary"
-                        data-bs-toggle="modal"
-                        data-bs-target="#editBookModal" 
-                        onClick="setEditModal(${book.isbn})"
-                      >Edit</button>
+                      <button types="button" class="btn btn-primary" data-toggle="modal"
+                          data-target="#editBookModal" onClick="setEditModal(${book.isbn})">
+                          Edit
+                      </button>
                   </div>
               </div>
           </div>

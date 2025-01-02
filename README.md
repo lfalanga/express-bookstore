@@ -19,10 +19,10 @@ This template provides an arquitecture to develop a fake API REST.
 
 # ToDos
 
+- all responses to JSON format. define a standard format. status, message, etc.
 - editBookModal: post form via ajax.
 - improve post methods for updates. is returning json. try using ajax. also for deletions.
 - implement proper status codes for every response.
 - do the tricky tests.
-- all responses to JSON format. define a standard format. status, message, etc.
 - research about testing packages.
 - deploy application on render.

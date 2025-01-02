@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index.html</title>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+  </head>
+  <body>
+    <div class="container">
+      <hr />
+      <h1>index.html</h1>
+      <hr />
+
+      <ul class="list-group">
+        <a
+          href="#"
+          class="list-group-item list-group-item-action active"
+          aria-current="true"
+        >
+          Index
+        </a>
+        <a href="/api/greetings" class="list-group-item list-group-item-action"
+          >Greetings: home</a
+        >
+        <a href="/api/greetings/hello" class="list-group-item list-group-item-action"
+          >Greetings: hello</a
+        >
+        <a href="/api/greetings/goodbye" class="list-group-item list-group-item-action"
+          >Greetings: goodbye</a
+        >
+        <a href="/bookstore" class="list-group-item list-group-item-action"
+          >Bookstore: home</a
+        >
+        <a href="/bookstore/add" class="list-group-item list-group-item-action"
+          >Bookstore: add</a
+        >
+        <a href="/bookstore/list" class="list-group-item list-group-item-action"
+          >Bookstore: list</a
+        >
+        <a
+          class="list-group-item list-group-item-action disabled"
+          aria-disabled="true"
+          >Bookstore: get, post, put and delete.</a
+        >
+        <a
+          class="list-group-item list-group-item-action disabled"
+          aria-disabled="true"
+          >Foo: under construction.</a
+        >
+      </ul>
+    </div>
+    
+    <!-- optional js -->
+    <!-- jquery first, then bootstrap js -->
+    <script src="/jquery/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

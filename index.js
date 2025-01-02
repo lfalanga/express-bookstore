@@ -3,6 +3,7 @@ import path from "path";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import staticRoutes from "./routes/static.js";
 import greetingsRoutes from "./routes/greetings.js";
 import bookstoreRoutes from "./routes/bookstore.js";
 
@@ -18,6 +19,36 @@ console.log(`[author]: ${process.env.APP_AUTHOR}.`);
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+// jquery
+app.use(
+  "/jquery/js",
+  express.static(path.join(__dirname, "node_modules/jquery/dist"))
+);
+// bootstrap
+app.use(
+  "/bootstrap/css",
+  express.static(path.join(__dirname, "node_modules/bootstrap/dist/css"))
+);
+app.use(
+  "/bootstrap/js",
+  express.static(path.join(__dirname, "node_modules/bootstrap/dist/js"))
+);
+// public
+app.use(express.static(path.join(__dirname, "public")));
+// app.use("/public", express.static(path.join(__dirname, "public")));
+// friendly static routes
+app.use("/bookstore", staticRoutes);
+// foo
+// dynamic path, but only match asset at specific segment
+app.use("/foo/:foo/:bar/:asset", (req, res, next) => {
+  req.url = req.params.asset;
+  express.static(path.join(__dirname, "public"))(req, res, next);
+});
+// just the asset
+app.use("/foo/*", (req, res, next) => {
+  req.url = path.basename(req.originalUrl);
+  express.static(path.join(__dirname, "public"))(req, res, next);
+});
 
 // end points
 // home
@@ -28,26 +59,6 @@ app.get("/", (req, res) => {
 app.use("/api/greetings", greetingsRoutes);
 // bookstore
 app.use("/api/books", bookstoreRoutes);
-// public
-app.use("/static", express.static(path.join(__dirname, "public")));
-// bootstrap
-app.use(
-  "/css",
-  express.static(path.join(__dirname, "node_modules/bootstrap/dist/css"))
-);
-app.use(
-  "/scss",
-  express.static(path.join(__dirname, "node_modules/bootstrap/scss"))
-);
-app.use(
-  "/js",
-  express.static(path.join(__dirname, "node_modules/bootstrap/dist/js"))
-);
-// jquery
-app.use(
-  "/js",
-  express.static(path.join(__dirname, "node_modules/jquery/dist"))
-);
 
 // http server
 try {

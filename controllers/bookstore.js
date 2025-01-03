@@ -10,7 +10,7 @@ class BookstoreController {
 
   home(req, res) {
     try {
-      successRes(res, `${process.env.APP_NAME}: bookstore: home.`);
+      successRes(res, `${process.env.APP_NAME}: home.`);
     } catch (err) {
       errorRes(res, err);
     }
@@ -30,7 +30,7 @@ class BookstoreController {
       const book = db.books.find((book) => book.isbn === isbn);
       if (book) successRes(res, book);
       else {
-        errorRes(res, new Error("not found"), `${process.env.APP_NAME}: bookstore: book not found.`, 404);
+        errorRes(res, new Error("not found"), `book: not found.`, 404);
       }
     } catch (err) {
       errorRes(res, err);
@@ -44,7 +44,6 @@ class BookstoreController {
       const created = { id: db.books.length, ...data };
       const index = db.books.findIndex((book) => book.isbn === created.isbn);
       if (db.books[index]) {
-        // errorRes(res, new Error("conflict"), `${process.env.APP_NAME}: bookstore: book already exists.`, 409);
         errorRes(res, new Error("conflict"), `book: already exists.`, 409);
       } else {
         db.books.push(created);
@@ -67,7 +66,7 @@ class BookstoreController {
         db.books[index] = updated;
         successRes(res, updated);
       } else
-        errorRes(res, new Error("not found"), `${process.env.APP_NAME}: bookstore: book not found.`, 404);
+        errorRes(res, new Error("not found"), `book: not found.`, 404);
     } catch (err) {
       errorRes(res, err);
     }
@@ -85,7 +84,7 @@ class BookstoreController {
         db.books[index] = updated;
         successRes(res, updated);
       } else
-        errorRes(res, new Error("not found"), `${process.env.APP_NAME}: bookstore: book not found.`, 404);
+        errorRes(res, new Error("not found"), `book: not found.`, 404);
     } catch (err) {
       errorRes(res, err);
     }
@@ -97,7 +96,7 @@ class BookstoreController {
       const index = db.books.findIndex((book) => book.isbn === isbn);
       if (db.books[index]) {
         db.books.splice(index, 1);
-        successRes(res, `${process.env.APP_NAME}: bookstore: deleted.`);
+        successRes(res, `book: deleted.`);
       } else
         errorRes(res, new Error("not found"), `book: not found.`, 404);
     } catch (err) {

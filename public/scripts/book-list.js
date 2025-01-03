@@ -46,7 +46,7 @@ function updateBook() {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        console.log("[success:]", data);
+        // console.log("[success:]", data);
         content = "book: updated.";
         type = "success";
         position = ["top-0", "end-0"];
@@ -54,7 +54,7 @@ function updateBook() {
         fetchBookList();
         hideModal();
       } else {
-        console.log("[error:]", data);
+        // console.log("[error:]", data);
         content = data.error;
         type = "warning";
         position = ["top-0", "end-0"];
@@ -62,7 +62,7 @@ function updateBook() {
       }
     })
     .catch((error) => {
-      console.error("[error]:", error);
+      // console.error("[error]:", error);
       content = error.error;
       type = "danger";
       position = ["top-0", "end-0"];
@@ -77,14 +77,14 @@ function deleteBook(isbn) {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        console.log("[success:]", data);
+        // console.log("[success:]", data);
         content = "book: deleted.";
         type = "success";
         position = ["top-0", "end-0"];
         showToast(content, type, position);
         fetchBookList();
       } else {
-        console.log("[error:]", data);
+        // console.log("[error:]", data);
         content = data.error;
         type = "warning";
         position = ["top-0", "end-0"];
@@ -92,8 +92,8 @@ function deleteBook(isbn) {
       }
     })
     .catch((error) => {
-      console.error("[error]:", error);
-      content = data.error;
+      // console.error("[error]:", error);
+      content = error.error;
       type = "danger";
       position = ["top-0", "end-0"];
       showToast(content, type, position);
@@ -129,7 +129,6 @@ function loadBooks(books) {
           </div>
       </div>
       `;
-
     document.getElementById("books").innerHTML += x;
   }
 }
@@ -145,14 +144,14 @@ async function fetchBookList() {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        console.log("[success:]", data);
+        // console.log("[success:]", data);
         content = "book list: loaded.";
         type = "success";
         position = ["top-0", "end-0"];
         showToast(content, type, position);
         loadBooks(data.data);
       } else {
-        console.log("[error:]", data);
+        // console.log("[error:]", data);
         content = data.error;
         type = "warning";
         position = ["top-0", "end-0"];
@@ -160,7 +159,7 @@ async function fetchBookList() {
       }
     })
     .catch((error) => {
-      console.error("[error]:", error);
+      // console.error("[error]:", error);
       content = error.error;
       type = "danger";
       position = ["top-0", "end-0"];

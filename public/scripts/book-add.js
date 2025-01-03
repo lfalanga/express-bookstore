@@ -14,13 +14,13 @@ function createBook() {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        console.log("[success:]", data);
+        // console.log("[success:]", data);
         content = "book: saved.";
         type = "success";
         position = ["top-0", "end-0"];
         showToast(content, type, position);
       } else {
-        console.log("[error:]", data);
+        // console.log("[error:]", data);
         content = data.error;
         type = "warning";
         position = ["top-0", "end-0"];
@@ -28,7 +28,7 @@ function createBook() {
       }
     })
     .catch((error) => {
-      console.error("[error]:", error);
+      // console.error("[error]:", error);
       content = error.error;
       type = "danger";
       position = ["top-0", "end-0"];

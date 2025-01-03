@@ -1,8 +1,8 @@
 import "dotenv/config";
 import path from "path";
 import express from "express";
-import bodyParser from "body-parser";
 import cors from "cors";
+import bodyParser from "body-parser";
 import staticRoutes from "./routes/static.js";
 import greetingsRoutes from "./routes/greetings.js";
 import bookstoreRoutes from "./routes/bookstore.js";
@@ -51,13 +51,7 @@ app.use("/foo/*", (req, res, next) => {
 });
 
 // end points
-// home
-app.get("/", (req, res) => {
-  res.status(200).json({ message: `${process.env.APP_NAME}: home.` });
-});
-// greetings
 app.use("/api/greetings", greetingsRoutes);
-// bookstore
 app.use("/api/books", bookstoreRoutes);
 
 // http server

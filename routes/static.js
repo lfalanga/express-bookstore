@@ -5,6 +5,7 @@ import { errorRes, successRes } from "../common/response.js";
 
 const __dirname = path.resolve(path.dirname(""));
 
+// end points
 const router = express.Router();
 router.get("/", (req, res) => {
   try {

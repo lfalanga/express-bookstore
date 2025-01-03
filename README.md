@@ -21,7 +21,6 @@ This template provides an arquitecture to develop a fake API REST.
 
 # ToDos
 
-- revise each file and remove unused logging.
 - do the tricky tests.
 - research about testing packages.
 - deploy application on render.

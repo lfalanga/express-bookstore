@@ -44,7 +44,8 @@ class BookstoreController {
       const created = { id: db.books.length, ...data };
       const index = db.books.findIndex((book) => book.isbn === created.isbn);
       if (db.books[index]) {
-        errorRes(res, new Error("conflict"), `${process.env.APP_NAME}: bookstore: book already exists.`, 409);
+        // errorRes(res, new Error("conflict"), `${process.env.APP_NAME}: bookstore: book already exists.`, 409);
+        errorRes(res, new Error("conflict"), `book: already exists.`, 409);
       } else {
         db.books.push(created);
         successRes(res, created, 201);
@@ -98,7 +99,7 @@ class BookstoreController {
         db.books.splice(index, 1);
         successRes(res, `${process.env.APP_NAME}: bookstore: deleted.`);
       } else
-        errorRes(res, new Error("not found"), `${process.env.APP_NAME}: bookstore: book not found.`, 404);
+        errorRes(res, new Error("not found"), `book: not found.`, 404);
     } catch (err) {
       errorRes(res, err);
     }

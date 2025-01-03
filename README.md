@@ -16,11 +16,12 @@ This template provides an arquitecture to develop a fake API REST.
 - [article](https://www.geeksforgeeks.org/what-is-export-default-in-javascript/) : What is export default in JavaScript?
 - [article](https://expressjs.com/en/starter/static-files.html) : Serving static files in Express.
 - [article](https://www.educative.io/answers/how-to-add-bootstrap-to-your-nodejs-project) : How to add Bootstrap to Node.js project.
+- [article](https://getbootstrap.com/docs/5.3/getting-started/introduction/) : Get started with Bootstrap.
+- [article](https://www.codehim.com/bootstrap/bootstrap-5-toast-dynamic-message/) : Bootstrap 5 Toast dynamic message.
 
 # ToDos
 
-- editBookModal: post form via ajax.
-- improve post methods for updates. is returning json. try using ajax. also for deletions.
+- revise each file and remove unused logging.
 - do the tricky tests.
 - research about testing packages.
 - deploy application on render.

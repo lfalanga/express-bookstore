@@ -21,6 +21,4 @@ This template provides an arquitecture to develop a fake API REST.
 
 # ToDos
 
-- do the tricky tests.
-- research about testing packages.
-- deploy application on render.
+- research about testing packages: jest.
